@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./cart.css">
+</head>
+<body>
+  <div>
+    <h2>Cart Items</h2>
+  </div>
+  
+  <div id="cart-items"></div>
+
+  <script>
+    const cartDiv = document.getElementById("cart-items");
+
+    function renderCart() {
+      cartDiv.innerHTML = "";
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+        cartDiv.innerHTML = "<p>No items in cart.</p>";
+        return;
+      }
+
+      Promise.all(
+        cart.map(id =>
+          fetch(`https://fakestoreapi.com/products/${id}`).then(res => res.json())
+        )
+      ).then(products => {
+        products.forEach(p => {
+          cartDiv.innerHTML += `
+            <div class="cart-card">
+              <img src="${p.image}" alt="${p.title}" />
+              <h4>${p.title}</h4>
+              <p>$${p.price}</p>
+              <button class="remove-btn" onclick="removeFromCart(${p.id})">Remove</button>
+            </div>
+          `;
+        });
+      });
+    }
+
+    function removeFromCart(id) {
+      let updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      updatedCart = updatedCart.filter(itemId => itemId !== id);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+  
+</body>
+</html>

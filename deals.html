@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deals | E-Com</title>
+  <link rel="stylesheet" href="./deals.css">
+</head>
+<body>
+  <h1>🔥 Today's Deals</h1>
+  <div class="deals-container" id="deals"></div>
+
+  <script>
+    fetch("https://fakestoreapi.com/products")
+      .then(res => res.json())
+      .then(products => {
+        const shuffled = products.sort(() => 0.5 - Math.random()).slice(0, 6);
+        const dealsContainer = document.getElementById("deals");
+
+        shuffled.forEach(product => {
+          const discount = Math.floor(Math.random() * 31) + 10; 
+          const discountedPrice = (product.price * (1 - discount / 100)).toFixed(2);
+
+          const card = document.createElement("div");
+          card.className = "deal-card";
+          card.innerHTML = `
+            <div class="discount">${discount}% OFF</div>
+            <a href="product.html?id=${product.id}">
+              <img src="${product.image}" alt="${product.title}">
+              <h3>${product.title.slice(0, 40)}...</h3>
+            </a>
+            <p class="price"><s>$${product.price}</s> → $${discountedPrice}</p>
+            <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
+          `;
+          dealsContainer.appendChild(card);
+        });
+      });
+
+    function addToCart(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart");
+    }
+  </script>
+      
+      <footer>
+        <p>📍 Dudai Main Road, Dubai</p>
+        <p>📞 1234567890 | 📧 support@shiftycart.com</p>
+        <p>Follow us on Instagram: @shiftys_cart</p>
+        </footer>
+</body>
+</html>
+
+
+

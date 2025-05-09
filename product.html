@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./product.css">
+  
+
+</head>
+<body style="background-color: #101218;">
+  <div id="product-detail"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then(res => res.json())
+      .then(product => {
+        document.getElementById("product-detail").innerHTML = `
+          <h2 class="Titlemm">${product.title}</h2>
+          <img class='Productimg' src="${product.image}">
+          <p class="Titlemm">${product.description}</p>
+          <p class="Titlemm">Category: ${product.category}</p>
+          <p class="Titlemm">Price: $${product.price}</p>
+          <button class="tton" onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+      });
+
+    function addToCart(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart");
+    }
+  </script>
+</body>
+</html>

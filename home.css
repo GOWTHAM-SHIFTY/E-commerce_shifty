@@ -1,0 +1,271 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Cal Sans', sans-serif;
+    background: linear-gradient(to right, #0a0f1a, #0b1e35, #081c2c);
+    color: white;
+    line-height: 1.6;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  button {
+    font-family: inherit;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #111c2e;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+
+  .search-container {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .search-container input {
+    border: none;
+    padding: 10px;
+    width: 180px;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .search-container button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: radial-gradient(circle at center, #1a2a3c 0%, #0f2027 100%);
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .hero button {
+    padding: 12px 25px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+
+  .categories {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .category-card {
+    background-color: #1c2c3c;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    transition: 0.3s;
+  }
+  
+  .category-card:hover {
+    background-color: #263a52;
+  }
+  
+  .products {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+ 
+  
+  .product-card {
+    background-color: #1a1a2e;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .product-card h3 {
+    margin: 10px 0 5px;
+  }
+  
+  .product-card p {
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  .price {
+    display: block;
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .product-card button {
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .product-card button:hover {
+    background-color: #e65c00;
+  }
+  
+  .deals {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #101b2d;
+  }
+  
+  .deal-list {
+    margin-top: 20px;
+  }
+  
+  .deal-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .testimonials {
+    padding: 40px 20px;
+    background-color: #081520;
+    text-align: center;
+  }
+  
+  .testimonials blockquote {
+    font-style: italic;
+    margin: 10px auto;
+    max-width: 600px;
+  }
+
+  .newsletter {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .newsletter input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+  }
+  
+  .newsletter button {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 25px;
+  }
+  
+
+  footer {
+    background-color: #0a0f1a;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #111c2e;
+    }
+  
+    .nav.show {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .search-container {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .shopNow{
+    background-color: #203a43;
+    border-radius: 10px;
+    font-size: larger;
+    padding: 10px;
+  }
+  .shopNow:hover{
+    color: #aaa;
+    background-color: #0a0f1a;
+    transform: 1.03;
+    box-shadow: 0 4px 10px rgba(255, 250, 250, 0.2);
+  }
+
+  

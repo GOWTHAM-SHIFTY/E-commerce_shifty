@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🛍️ SHIFTY's CART</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="header" style="background-image: url(./360_F_276080724_hltnCyDjcqAyRtLzDYo3T2jXbBtCD7fl.jpg);">
+        <div class="logo">🛍️ SHIFTY's CART</div>
+        
+        <nav class="nav">
+          <a href="./home.html">HOME</a>
+          <a href="./about.html">ABOUT US</a>
+          <a href="./deals.html">DEALS</a>
+          <a href="./index.html#contact">CONTACT</a>
+          <a href="./cart.html">CART🛒</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+          ☰
+        </div>
+        <div class="search-container">
+          <input type="text" id="nav-search" placeholder="Search pages..." onkeydown="if(event.key==='Enter'){searchPage()}">
+          <button onclick="searchPage()">🔍</button>
+        </div>
+        
+      </header>
+     
+      
+      <script>
+        function searchPage() {
+          const query = document.getElementById("nav-search").value.toLowerCase().trim();
+      
+          if (query.includes("home")) {
+            window.location.href = "home.html";
+          } else if (query.includes("about")) {
+            window.location.href = "about.html";
+          } else if (query.includes("deals")) {
+            window.location.href = "deals.html";
+          } else if (query.includes("contact")) {
+            window.location.href = "index.html#contact";
+          } else if (query.includes("cart")) {
+            window.location.href = "cart.html";
+          } else {
+            alert("Page not found");
+          }
+        }
+      </script>
+      
+      <script>
+      function toggleMenu() {
+        const nav = document.querySelector(".nav");
+        const hamburger = document.querySelector(".hamburger");
+      
+        nav.classList.toggle("show");
+        hamburger.classList.toggle("open");
+      
+        if (hamburger.classList.contains("open")) {
+          hamburger.textContent = "✖";
+        } else {
+          hamburger.textContent = "☰";
+        }
+      }
+    </script>
+      
+      
+      
+  <script src="script.js"></script>
+  <div id="product-list"></div>
+  <script src="script.js"></script>
+  <footer id="contact">
+    <p>📍 Dudai Main Road, Dubai</p>
+    <p>📞 1234567890 | 📧 support@shiftycart.com</p>
+    <p>Follow us on Instagram: @shiftys_cart</p>
+  </footer>
+  
+</body>
+</html>

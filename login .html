@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+          <p id="error-msg"></p>
+        </form>
+      </div>
+    
+      <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+          const uname = document.getElementById("username").value;
+          const pass = document.getElementById("password").value;
+          const error = document.getElementById("error-msg");
+    
+          if (uname === "shifty" && pass === "1234") {
+            localStorage.setItem("isLoggedIn", "true");
+            window.location.href = "index.html";
+          } else {
+            error.textContent = "Invalid username or password";
+          }
+        });
+      </script>
+</body>
+</html>
